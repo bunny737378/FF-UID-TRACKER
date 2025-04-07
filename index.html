@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>UID Tracker</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Bangers&display=swap" rel="stylesheet">
   <style>
     .glass {
       background: rgba(255, 255, 255, 0.05);
@@ -54,37 +54,41 @@
       }
     }
 
-    .animated-gradient {
-      background: linear-gradient(270deg, #00f0ff, #8f00ff, #00f0ff);
-      background-size: 600% 600%;
-      animation: gradientFlow 6s ease infinite;
+    .bhupendra-brand {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-family: 'Bangers', cursive;
+      font-size: 1.2rem;
+      background: linear-gradient(to right, #ff9900, #ff0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideFadeIn 1.2s ease-in-out both;
     }
 
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .pulse-border {
-      box-shadow: 0 0 5px #00f0ff, 0 0 15px #8f00ff;
-      animation: pulse 2s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 5px #00f0ff, 0 0 15px #8f00ff; }
-      50% { box-shadow: 0 0 10px #8f00ff, 0 0 25px #00f0ff; }
+    @keyframes slideFadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white font-[Inter] flex flex-col justify-center items-center px-4 py-10">
+<body class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white font-[Inter] flex flex-col justify-center items-center px-4 py-10 relative">
 
-  <!-- Heading -->
+  <!-- Top Right Branding -->
+  <div class="bhupendra-brand">DESIGN BY BHUPENDRA</div>
+
+  <!-- New Heading at Bottom Center -->
   <div class="mt-10 fade-slide text-center">
     <h1 class="tracker-heading">FF UID TRACKER</h1>
   </div>
 
-  <!-- Search Section -->
+  <!-- Search Card -->
   <main class="max-w-md w-full p-6 mt-6 glass rounded-2xl glow-border fade-slide">
     <label for="ff-id" class="block text-lg font-medium mb-2">Enter UID</label>
     <div class="flex items-center gap-3 mb-6">
@@ -99,7 +103,7 @@
           class="bg-transparent outline-none text-white w-full placeholder:text-gray-400"
         />
       </div>
-      <button onclick="fetchData()" class="animated-gradient pulse-border text-white px-4 py-3 rounded-xl font-medium hover:scale-105 transition transform shadow-lg">
+      <button onclick="fetchData()" class="bg-gradient-to-r from-cyan-500 to-purple-600 px-4 py-3 rounded-xl font-medium hover:scale-105 transition transform shadow-lg">
         Search
       </button>
     </div>
@@ -114,7 +118,7 @@
     <div id="error-alert" class="hidden text-sm text-red-400 mt-2"></div>
   </main>
 
-  <!-- Result Section -->
+  <!-- Stylish Result Section -->
   <section id="result" class="hidden max-w-md w-full mt-10 p-6 rounded-2xl glass glow-border fade-slide">
     <div class="flex items-center gap-4 mb-6">
       <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-lg">P</div>
@@ -127,17 +131,17 @@
     <div class="space-y-4 text-sm">
       <div class="bg-gray-800/50 rounded-xl p-3 px-4 flex items-center justify-between hover:scale-[1.02] transition">
         <span class="text-gray-400 font-medium">Region</span>
-        <span id="region" class="animated-gradient pulse-border text-white font-semibold px-3 py-1 rounded-lg text-sm shadow-inner">-</span>
+        <span id="region" class="text-white font-semibold bg-gradient-to-r from-cyan-400 to-purple-500 px-3 py-1 rounded-lg text-sm shadow-inner">-</span>
       </div>
 
       <div class="bg-gray-800/50 rounded-xl p-3 px-4 flex items-center justify-between hover:scale-[1.02] transition">
         <span class="text-gray-400 font-medium">Account Created</span>
-        <span id="account_creation" class="animated-gradient pulse-border text-white font-semibold px-3 py-1 rounded-lg text-sm shadow-inner">-</span>
+        <span id="account_creation" class="text-white font-semibold bg-gradient-to-r from-cyan-400 to-purple-500 px-3 py-1 rounded-lg text-sm shadow-inner">-</span>
       </div>
 
       <div class="bg-gray-800/50 rounded-xl p-3 px-4 flex items-center justify-between hover:scale-[1.02] transition">
         <span class="text-gray-400 font-medium">Status</span>
-        <span id="ban_status" class="animated-gradient pulse-border text-white font-semibold px-3 py-1 rounded-lg text-sm shadow-inner">-</span>
+        <span id="ban_status" class="text-white font-semibold bg-gradient-to-r from-green-400 to-blue-500 px-3 py-1 rounded-lg text-sm shadow-inner">-</span>
       </div>
     </div>
   </section>
@@ -199,4 +203,4 @@
   </script>
 
 </body>
-        </html>
+  </html>
